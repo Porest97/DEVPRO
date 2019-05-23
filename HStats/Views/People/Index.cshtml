@@ -1,0 +1,114 @@
+﻿@model IEnumerable<HStats.Models.Person>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>People</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StreetAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZipCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.County)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ssn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Club)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Club1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RefereeStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoachStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StaffStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.StreetAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.County)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ssn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Club.ClubName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Club1.ClubName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefereeStatus.RStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoachStatus.SCStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayerStatus.PStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffStatus.SStatus)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

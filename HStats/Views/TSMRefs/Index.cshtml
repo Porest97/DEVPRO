@@ -1,0 +1,105 @@
+﻿@model IEnumerable<HStats.Models.TSMRef>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RefNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ssn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RefereeType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RefereeCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RefereeCategoryType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RefereeDistrict)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Club)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumbers)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.RefNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ssn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefereeType.RefereeTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefereeCategory.RefereeCategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefereeCategoryType.RefereeCategoryTypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefereeDistrict.RefereeDistrictName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Club.ClubName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumbers)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
