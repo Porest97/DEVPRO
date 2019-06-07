@@ -17,5 +17,11 @@ namespace HStats.Models
         public DbSet<HStats.Models.Person> Person { get; set; }
 
         public DbSet<HStats.Models.TSMRef> TSMRef { get; set; }
+
+        public DbSet<HStats.Models.Game> Game { get; set; }
+
+        public DbSet<HStats.Models.Arena> Arena { get; set; }
+
+        public DbSet<HStats.Models.Series> Series { get; set; }
     }
 }

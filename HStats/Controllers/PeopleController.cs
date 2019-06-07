@@ -66,7 +66,7 @@ namespace HStats.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,StreetAddress,ZipCode,County,Country,Ssn,PhoneNumber,Email,ClubId,ClubId1,RefereeStatusId,CoachStatusId,PlayerStatusId,StaffStatusId")] Person person)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,StreetAddress,ZipCode,County,Country,Ssn,PhoneNumber,Email,ClubId,ClubId1,RefereeStatusId,CoachStatusId,PlayerStatusId,StaffStatusId,PhoneNumber1")] Person person)
         {
             if (ModelState.IsValid)
             {
@@ -110,7 +110,7 @@ namespace HStats.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,StreetAddress,ZipCode,County,Country,Ssn,PhoneNumber,Email,ClubId,ClubId1,RefereeStatusId,CoachStatusId,PlayerStatusId,StaffStatusId")] Person person)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,StreetAddress,ZipCode,County,Country,Ssn,PhoneNumber,Email,ClubId,ClubId1,RefereeStatusId,CoachStatusId,PlayerStatusId,StaffStatusId,PhoneNumber1")] Person person)
         {
             if (id != person.Id)
             {

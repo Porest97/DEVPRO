@@ -19,6 +19,27 @@ namespace HStats.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("HStats.Models.Arena", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ArenaCountry");
+
+                    b.Property<string>("ArenaCounty");
+
+                    b.Property<string>("ArenaName");
+
+                    b.Property<string>("ArenaStreetAddress");
+
+                    b.Property<string>("ArenaZipCode");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Arena");
+                });
+
             modelBuilder.Entity("HStats.Models.Club", b =>
                 {
                     b.Property<int>("Id")
@@ -57,6 +78,65 @@ namespace HStats.Migrations
                     b.ToTable("CoachStatus");
                 });
 
+            modelBuilder.Entity("HStats.Models.Game", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ArenaId");
+
+                    b.Property<int?>("AwayTeamScore");
+
+                    b.Property<int?>("HomeTeamScore");
+
+                    b.Property<DateTime>("MatchDateTime");
+
+                    b.Property<int?>("MatchNumber");
+
+                    b.Property<int?>("PersonId");
+
+                    b.Property<int?>("PersonId1");
+
+                    b.Property<int?>("PersonId2");
+
+                    b.Property<int?>("PersonId3");
+
+                    b.Property<int?>("PersonId4");
+
+                    b.Property<int?>("SeriesId");
+
+                    b.Property<int?>("TSMNumber");
+
+                    b.Property<int?>("TeamId");
+
+                    b.Property<int?>("TeamId1");
+
+                    b.Property<DateTime>("TimeStamp");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArenaId");
+
+                    b.HasIndex("PersonId");
+
+                    b.HasIndex("PersonId1");
+
+                    b.HasIndex("PersonId2");
+
+                    b.HasIndex("PersonId3");
+
+                    b.HasIndex("PersonId4");
+
+                    b.HasIndex("SeriesId");
+
+                    b.HasIndex("TeamId");
+
+                    b.HasIndex("TeamId1");
+
+                    b.ToTable("Game");
+                });
+
             modelBuilder.Entity("HStats.Models.Person", b =>
                 {
                     b.Property<int>("Id")
@@ -80,6 +160,8 @@ namespace HStats.Migrations
                     b.Property<string>("LastName");
 
                     b.Property<string>("PhoneNumber");
+
+                    b.Property<string>("PhoneNumber1");
 
                     b.Property<int?>("PlayerStatusId");
 
@@ -188,6 +270,23 @@ namespace HStats.Migrations
                     b.ToTable("RefereeType");
                 });
 
+            modelBuilder.Entity("HStats.Models.Series", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("EndDate");
+
+                    b.Property<string>("SeriesName");
+
+                    b.Property<DateTime>("StartDate");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Series");
+                });
+
             modelBuilder.Entity("HStats.Models.StaffStatus", b =>
                 {
                     b.Property<int>("Id")
@@ -252,6 +351,58 @@ namespace HStats.Migrations
                     b.HasIndex("RefereeTypeId");
 
                     b.ToTable("TSMRef");
+                });
+
+            modelBuilder.Entity("HStats.Models.Team", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("TeamName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Team");
+                });
+
+            modelBuilder.Entity("HStats.Models.Game", b =>
+                {
+                    b.HasOne("HStats.Models.Arena", "Arena")
+                        .WithMany()
+                        .HasForeignKey("ArenaId");
+
+                    b.HasOne("HStats.Models.Person", "Person")
+                        .WithMany()
+                        .HasForeignKey("PersonId");
+
+                    b.HasOne("HStats.Models.Person", "Person1")
+                        .WithMany()
+                        .HasForeignKey("PersonId1");
+
+                    b.HasOne("HStats.Models.Person", "Person2")
+                        .WithMany()
+                        .HasForeignKey("PersonId2");
+
+                    b.HasOne("HStats.Models.Person", "Person3")
+                        .WithMany()
+                        .HasForeignKey("PersonId3");
+
+                    b.HasOne("HStats.Models.Person", "Person4")
+                        .WithMany()
+                        .HasForeignKey("PersonId4");
+
+                    b.HasOne("HStats.Models.Series", "Series")
+                        .WithMany()
+                        .HasForeignKey("SeriesId");
+
+                    b.HasOne("HStats.Models.Team", "HomeTeam")
+                        .WithMany()
+                        .HasForeignKey("TeamId");
+
+                    b.HasOne("HStats.Models.Team", "AwayTeam")
+                        .WithMany()
+                        .HasForeignKey("TeamId1");
                 });
 
             modelBuilder.Entity("HStats.Models.Person", b =>

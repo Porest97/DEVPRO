@@ -80,5 +80,12 @@ namespace HStats.Models
         [Display(Name = "Personal Status")]
         public StaffStatus StaffStatus { get; set; }
 
+        [Display(Name = "Telefonnummer1")]
+        [DataType(DataType.PhoneNumber)]
+        public string PhoneNumber1 { get; set; }
+
+        [Display(Name = "Telefonnummer")]
+        public string PhoneNumbers { get { return string.Format("{0} {1} ", PhoneNumber, PhoneNumber1); } }
+
     }
 }

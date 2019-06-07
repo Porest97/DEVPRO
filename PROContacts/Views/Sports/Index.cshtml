@@ -1,0 +1,38 @@
+﻿@model IEnumerable<PROContacts.Models.Sport>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Sports</h1>
+
+<p>
+    <a class="btn btn-success" asp-area="" asp-controller="Sports" asp-action="Create">Create New Sport</a>
+    <a class="btn btn-danger" asp-area="" asp-controller="Home" asp-action="People">Back to People</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SportName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.OrderBy(x => x.SportName))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SportName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

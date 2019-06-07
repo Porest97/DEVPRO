@@ -53,33 +53,38 @@
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="PhoneNumber1" class="control-label"></label>
+                <input asp-for="PhoneNumber1" class="form-control" />
+                <span asp-validation-for="PhoneNumber1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ClubId" class="control-label"></label>
-                <select asp-for="ClubId" class ="form-control" asp-items="ViewBag.ClubId"></select>
+                <select asp-for="ClubId" class="form-control" asp-items="ViewBag.ClubId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="ClubId1" class="control-label"></label>
-                <select asp-for="ClubId1" class ="form-control" asp-items="ViewBag.ClubId1"></select>
+                <select asp-for="ClubId1" class="form-control" asp-items="ViewBag.ClubId1"></select>
             </div>
             <div class="form-group">
                 <label asp-for="RefereeStatusId" class="control-label"></label>
-                <select asp-for="RefereeStatusId" class ="form-control" asp-items="ViewBag.RefereeStatusId"></select>
+                <select asp-for="RefereeStatusId" class="form-control" asp-items="ViewBag.RefereeStatusId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="CoachStatusId" class="control-label"></label>
-                <select asp-for="CoachStatusId" class ="form-control" asp-items="ViewBag.CoachStatusId"></select>
+                <select asp-for="CoachStatusId" class="form-control" asp-items="ViewBag.CoachStatusId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="PlayerStatusId" class="control-label"></label>
-                <select asp-for="PlayerStatusId" class ="form-control" asp-items="ViewBag.PlayerStatusId"></select>
+                <select asp-for="PlayerStatusId" class="form-control" asp-items="ViewBag.PlayerStatusId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="StaffStatusId" class="control-label"></label>
-                <select asp-for="StaffStatusId" class ="form-control" asp-items="ViewBag.StaffStatusId"></select>
+                <select asp-for="StaffStatusId" class="form-control" asp-items="ViewBag.StaffStatusId"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
