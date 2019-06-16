@@ -17,11 +17,11 @@ namespace Contacts.Controllers
         {
             _context = context;
         }
-
+                
         // GET: Contacts
         public async Task<IActionResult> Index()
         {
-            var contactsContext = _context.Contact.Include(c => c.Club).Include(c => c.District).Include(c => c.Role).Include(c => c.Season).Include(c => c.Sport).Include(c => c.Team);
+            var contactsContext = _context.Contact.Include(c=> c.AgeCategory).Include(c => c.Club).Include(c => c.District).Include(c => c.Role).Include(c => c.Season).Include(c => c.Sport).Include(c => c.Team);
             return View(await contactsContext.ToListAsync());
         }
 
@@ -34,6 +34,7 @@ namespace Contacts.Controllers
             }
 
             var contact = await _context.Contact
+                .Include(c => c.AgeCategory)
                 .Include(c => c.Club)
                 .Include(c => c.District)
                 .Include(c => c.Role)
@@ -52,6 +53,7 @@ namespace Contacts.Controllers
         // GET: Contacts/Create
         public IActionResult Create()
         {
+            ViewData["AgeCategoryId"] = new SelectList(_context.Set<AgeCategory>(), "Id", "AgeCategoryName");
             ViewData["ClubId"] = new SelectList(_context.Set<Club>(), "Id", "ClubName");
             ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "DistrictName");
             ViewData["RoleId"] = new SelectList(_context.Set<Role>(), "Id", "RoleName");
@@ -66,7 +68,7 @@ namespace Contacts.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ClubId,TeamId,RoleId,SeasonId,SportId,DistrictId,FirstName,LastName,PhoneNumber1,PhoneNumber2,Email,Ssn")] Contact contact)
+        public async Task<IActionResult> Create([Bind("Id,AgeCategoryId,ClubId,TeamId,RoleId,SeasonId,SportId,DistrictId,FirstName,LastName,PhoneNumber1,PhoneNumber2,Email,Ssn")] Contact contact)
         {
             if (ModelState.IsValid)
             {
@@ -74,6 +76,7 @@ namespace Contacts.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AgeCategoryId"] = new SelectList(_context.Set<AgeCategory>(), "Id", "AgeCategoryName", contact.AgeCategoryId);
             ViewData["ClubId"] = new SelectList(_context.Set<Club>(), "Id", "ClubName", contact.ClubId);
             ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "DistrictName", contact.DistrictId);
             ViewData["RoleId"] = new SelectList(_context.Set<Role>(), "Id", "RoleName", contact.RoleId);
@@ -96,6 +99,7 @@ namespace Contacts.Controllers
             {
                 return NotFound();
             }
+            ViewData["AgeCategoryId"] = new SelectList(_context.Set<AgeCategory>(), "Id", "AgeCategoryName", contact.AgeCategoryId);
             ViewData["ClubId"] = new SelectList(_context.Set<Club>(), "Id", "ClubName", contact.ClubId);
             ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "DistrictName", contact.DistrictId);
             ViewData["RoleId"] = new SelectList(_context.Set<Role>(), "Id", "RoleName", contact.RoleId);
@@ -110,7 +114,7 @@ namespace Contacts.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ClubId,TeamId,RoleId,SeasonId,SportId,DistrictId,FirstName,LastName,PhoneNumber1,PhoneNumber2,Email,Ssn")] Contact contact)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,AgeCategoryId,ClubId,TeamId,RoleId,SeasonId,SportId,DistrictId,FirstName,LastName,PhoneNumber1,PhoneNumber2,Email,Ssn")] Contact contact)
         {
             if (id != contact.Id)
             {
@@ -137,6 +141,7 @@ namespace Contacts.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AgeCategoryId"] = new SelectList(_context.Set<AgeCategory>(), "Id", "AgeCategoryName", contact.AgeCategoryId);
             ViewData["ClubId"] = new SelectList(_context.Set<Club>(), "Id", "ClubName", contact.ClubId);
             ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "DistrictName", contact.DistrictId);
             ViewData["RoleId"] = new SelectList(_context.Set<Role>(), "Id", "RoleName", contact.RoleId);

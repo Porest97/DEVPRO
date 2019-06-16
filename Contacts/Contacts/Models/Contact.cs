@@ -47,6 +47,12 @@ namespace Contacts.Models
         [ForeignKey("SeasonId")]
         public Season Season { get; set; }
 
+        [Display(Name = "Födda")]
+        public int? AgeCategoryId { get; set; }
+        [Display(Name = "Födda")]
+        [ForeignKey("AgeCategoryId")]
+        public AgeCategory AgeCategory { get; set; }
+
         [Display(Name = "Förnamn")]
         public String FirstName { get; set; }
 
@@ -77,6 +83,9 @@ namespace Contacts.Models
 
         [Display(Name = "SSN#")]
         public string Ssn { get; set; }
+
+        [Display(Name = "Kontakt")]
+        public string ListString { get { return string.Format("{0} {1} {2} {3}",Club, FullName, PhoneNumbers, Email ); } }
 
 
 
