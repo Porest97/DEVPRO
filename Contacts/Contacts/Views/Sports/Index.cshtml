@@ -1,10 +1,10 @@
-﻿@model IEnumerable<Contacts.Models.Role>
+﻿@model IEnumerable<Contacts.Models.Sport>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Roller</h1>
+<h1>Sporter</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -16,7 +16,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.RoleName)
+                @Html.DisplayNameFor(model => model.SportName)
             </th>
             <th></th>
         </tr>
@@ -25,7 +25,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.RoleName)
+                @Html.DisplayFor(modelItem => item.SportName)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

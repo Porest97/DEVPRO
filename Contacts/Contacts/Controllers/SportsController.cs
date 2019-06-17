@@ -9,23 +9,22 @@ using Contacts.Models;
 
 namespace Contacts.Controllers
 {
-    public class ClubsController : Controller
+    public class SportsController : Controller
     {
         private readonly ContactsContext _context;
 
-        public ClubsController(ContactsContext context)
+        public SportsController(ContactsContext context)
         {
             _context = context;
         }
 
-        // GET: Clubs
+        // GET: Sports
         public async Task<IActionResult> Index()
         {
-            var contactsContext = _context.Club.Include(c => c.District);
-            return View(await contactsContext.ToListAsync());
+            return View(await _context.Sport.ToListAsync());
         }
 
-        // GET: Clubs/Details/5
+        // GET: Sports/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,42 +32,39 @@ namespace Contacts.Controllers
                 return NotFound();
             }
 
-            var club = await _context.Club
-                .Include(c => c.District)
+            var sport = await _context.Sport
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (club == null)
+            if (sport == null)
             {
                 return NotFound();
             }
 
-            return View(club);
+            return View(sport);
         }
 
-        // GET: Clubs/Create
+        // GET: Sports/Create
         public IActionResult Create()
         {
-            ViewData["DistrictId"] = new SelectList(_context.District, "Id", "DistrictName");
             return View();
         }
 
-        // POST: Clubs/Create
+        // POST: Sports/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ClubName,DistrictId")] Club club)
+        public async Task<IActionResult> Create([Bind("Id,SportName")] Sport sport)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(club);
+                _context.Add(sport);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DistrictId"] = new SelectList(_context.District, "Id", "DistrictName", club.DistrictId);
-            return View(club);
+            return View(sport);
         }
 
-        // GET: Clubs/Edit/5
+        // GET: Sports/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -76,23 +72,22 @@ namespace Contacts.Controllers
                 return NotFound();
             }
 
-            var club = await _context.Club.FindAsync(id);
-            if (club == null)
+            var sport = await _context.Sport.FindAsync(id);
+            if (sport == null)
             {
                 return NotFound();
             }
-            ViewData["DistrictId"] = new SelectList(_context.District, "Id", "DistrictName", club.DistrictId);
-            return View(club);
+            return View(sport);
         }
 
-        // POST: Clubs/Edit/5
+        // POST: Sports/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ClubName,DistrictId")] Club club)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,SportName")] Sport sport)
         {
-            if (id != club.Id)
+            if (id != sport.Id)
             {
                 return NotFound();
             }
@@ -101,12 +96,12 @@ namespace Contacts.Controllers
             {
                 try
                 {
-                    _context.Update(club);
+                    _context.Update(sport);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ClubExists(club.Id))
+                    if (!SportExists(sport.Id))
                     {
                         return NotFound();
                     }
@@ -117,11 +112,10 @@ namespace Contacts.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DistrictId"] = new SelectList(_context.District, "Id", "DistrictName", club.DistrictId);
-            return View(club);
+            return View(sport);
         }
 
-        // GET: Clubs/Delete/5
+        // GET: Sports/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -129,31 +123,30 @@ namespace Contacts.Controllers
                 return NotFound();
             }
 
-            var club = await _context.Club
-                .Include(c => c.District)
+            var sport = await _context.Sport
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (club == null)
+            if (sport == null)
             {
                 return NotFound();
             }
 
-            return View(club);
+            return View(sport);
         }
 
-        // POST: Clubs/Delete/5
+        // POST: Sports/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var club = await _context.Club.FindAsync(id);
-            _context.Club.Remove(club);
+            var sport = await _context.Sport.FindAsync(id);
+            _context.Sport.Remove(sport);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ClubExists(int id)
+        private bool SportExists(int id)
         {
-            return _context.Club.Any(e => e.Id == id);
+            return _context.Sport.Any(e => e.Id == id);
         }
     }
 }
