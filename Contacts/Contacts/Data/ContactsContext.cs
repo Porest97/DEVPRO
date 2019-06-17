@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Contacts.Models;
 
 namespace Contacts.Models
 {
@@ -26,6 +27,8 @@ namespace Contacts.Models
         public DbSet<Contacts.Models.Sport> Sport { get; set; }
 
         public DbSet<Contacts.Models.Team> Team { get; set; }
+
+        public DbSet<Contacts.Models.Season> Season { get; set; }
 
     }
 }

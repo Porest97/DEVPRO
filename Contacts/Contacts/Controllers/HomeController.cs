@@ -14,7 +14,37 @@ namespace Contacts.Controllers
         {
             return View();
         }
+        public IActionResult AgeCategories()
+        {
+            return View();
+        }
+
         public IActionResult Contacts()
+        {
+            return View();
+        }
+
+        public IActionResult Clubs()
+        {
+            return View();
+        }
+
+        public IActionResult Districts()
+        {
+            return View();
+        }
+
+        public IActionResult Roles()
+        {
+            return View();
+        }
+
+        public IActionResult Seasons()
+        {
+            return View();
+        }
+
+        public IActionResult Teams()
         {
             return View();
         }
