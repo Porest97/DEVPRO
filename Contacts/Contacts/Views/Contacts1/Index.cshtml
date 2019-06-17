@@ -1,14 +1,18 @@
 ﻿@model IEnumerable<Contacts.Models.Contact>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Contacts";
 }
 
 <h1>Kontakter</h1>
 
+
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AgeCategory)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Club)
             </th>
@@ -34,6 +38,9 @@
     <tbody>
 @foreach (var item in Model.OrderBy(x=>x.Team.TeamName)) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AgeCategory.AgeCategoryName)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Club.ClubName)
             </td>

@@ -50,7 +50,7 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.OrderBy(x=>x.Team.TeamName)) {
+@foreach (var item in Model.OrderByDescending(x=>x.Club.ClubName)) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.AgeCategory.AgeCategoryName)

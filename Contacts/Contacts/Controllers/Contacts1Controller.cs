@@ -186,6 +186,12 @@ namespace Contacts.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        public async Task<IActionResult> Season20182019()
+        {
+            var contactsContext = _context.Contact.Include(c => c.AgeCategory).Include(c => c.Club).Include(c => c.District).Include(c => c.Role).Include(c => c.Season).Include(c => c.Sport).Include(c => c.Team);
+            return View(await contactsContext.ToListAsync());
+        }
+
 
         private bool ContactExists(int id)
         {
