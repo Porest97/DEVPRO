@@ -27,6 +27,8 @@ namespace NetelloBusinessSolution.Models
         [Display(Name = "CName")]
         public string CName { get { return string.Format("{0} {1} {2}", CentreNumber, CentreName, Address); } }
 
+        [Display(Name = "Centre Name")]
+        public string CwName { get { return string.Format("{0} {1}", CentreNumber, CentreName); } }
 
         [Display(Name = "Street Address")]
         public string StreetAddress { get; set; }

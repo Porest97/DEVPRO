@@ -1,0 +1,77 @@
+﻿@model IEnumerable<NetelloBusinessSolution.Models.WorkReport>
+
+@{
+    ViewData["Title"] = "WorkReports";
+}
+
+<h1>Work Reports</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessCentre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssignedFE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkStarted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkEnded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeWorked)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentPerHour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPayment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkNote)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusinessCentre.CwName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignedFE.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkStarted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkEnded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeWorked)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentPerHour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPayment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkNote)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

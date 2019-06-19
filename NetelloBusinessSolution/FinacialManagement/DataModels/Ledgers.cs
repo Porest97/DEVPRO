@@ -7,5 +7,8 @@ namespace NetelloBusinessSolution.FinacialManagement.DataModels
 {
     public class Ledgers
     {
+        public int Id { get; set; }
+
+
     }
 }
