@@ -42,5 +42,8 @@ namespace NetelloBusinessSolution.Models
         [ForeignKey("MeetingTypeId")]
         public MeetingType MeetingType { get; set; }
 
+        [Display(Name = "Status")]
+        public bool Status { get; set; } = false;
+
     }
 }

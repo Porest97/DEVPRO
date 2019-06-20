@@ -63,7 +63,7 @@ namespace NetelloBusinessSolution.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,StartDateTime,CompanyId,PersonId,PersonId1,MeetingNote,MeetingTypeId")] Meeting meeting)
+        public async Task<IActionResult> Create([Bind("Id,StartDateTime,CompanyId,PersonId,PersonId1,MeetingNote,MeetingTypeId,Status")] Meeting meeting)
         {
             if (ModelState.IsValid)
             {
@@ -103,7 +103,7 @@ namespace NetelloBusinessSolution.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,StartDateTime,CompanyId,PersonId,PersonId1,MeetingNote,MeetingTypeId")] Meeting meeting)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,StartDateTime,CompanyId,PersonId,PersonId1,MeetingNote,MeetingTypeId,Status")] Meeting meeting)
         {
             if (id != meeting.Id)
             {

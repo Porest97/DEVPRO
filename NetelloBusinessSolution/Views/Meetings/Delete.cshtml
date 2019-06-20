@@ -11,42 +11,48 @@
     <h4>Meeting</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.StartDateTime)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.StartDateTime)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Company)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Company.Id)
-        </dd class>
-        <dt class = "col-sm-2">
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Company.CompanyName)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Employee)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Employee.Id)
-        </dd class>
-        <dt class = "col-sm-2">
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Employee.FullName)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Person)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Person.Id)
-        </dd class>
-        <dt class = "col-sm-2">
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Person.FullName)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.MeetingNote)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.MeetingNote)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.MeetingType)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MeetingType.Id)
-        </dd class>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MeetingType.MeetingTypeName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
     </dl>
     
     <form asp-action="Delete">

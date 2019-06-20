@@ -26,5 +26,7 @@ namespace NetelloBusinessSolution.Data
         public DbSet<NetelloBusinessSolution.Models.WorkReport> WorkReport { get; set; }
         public DbSet<NetelloBusinessSolution.Models.Meeting> Meeting { get; set; }
         public DbSet<NetelloBusinessSolution.Models.MeetingType> MeetingType { get; set; }
+        public DbSet<NetelloBusinessSolution.Models.Invoice> Invoice { get; set; }
+        public DbSet<NetelloBusinessSolution.Models.Article> Article { get; set; }
     }
 }
