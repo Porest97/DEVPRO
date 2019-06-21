@@ -54,5 +54,7 @@ namespace NetelloBusinessSolution.Models
 
         [Display(Name = "Done")]
         public DateTime? JobbEnded { get; set; }
+
+        public string POName { get { return string.Format("{0} {1} ", PurchaseOrderNumber, Descrition); } }
     }
 }

@@ -4,6 +4,7 @@ using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using NetelloBusinessSolution.Models;
+using NetelloBusinessSolution.Models.TestModels;
 
 namespace NetelloBusinessSolution.Data
 {
@@ -28,5 +29,6 @@ namespace NetelloBusinessSolution.Data
         public DbSet<NetelloBusinessSolution.Models.MeetingType> MeetingType { get; set; }
         public DbSet<NetelloBusinessSolution.Models.Invoice> Invoice { get; set; }
         public DbSet<NetelloBusinessSolution.Models.Article> Article { get; set; }
+        public DbSet<NetelloBusinessSolution.Models.TestModels.PROWorkReport> PROWorkReport { get; set; }
     }
 }

@@ -608,6 +608,45 @@ namespace NetelloBusinessSolution.Data.Migrations
                     b.ToTable("SupportTicket");
                 });
 
+            modelBuilder.Entity("NetelloBusinessSolution.Models.TestModels.PROWorkReport", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CompanyId");
+
+                    b.Property<decimal?>("PaymentPerHour");
+
+                    b.Property<int?>("PersonId");
+
+                    b.Property<int?>("PersonId1");
+
+                    b.Property<int?>("PurchaseOrderId");
+
+                    b.Property<decimal>("TimeWorked");
+
+                    b.Property<decimal?>("TotalPayment");
+
+                    b.Property<DateTime>("WorkEnded");
+
+                    b.Property<string>("WorkNote");
+
+                    b.Property<DateTime>("WorkStarted");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanyId");
+
+                    b.HasIndex("PersonId");
+
+                    b.HasIndex("PersonId1");
+
+                    b.HasIndex("PurchaseOrderId");
+
+                    b.ToTable("PROWorkReport");
+                });
+
             modelBuilder.Entity("NetelloBusinessSolution.Models.WorkReport", b =>
                 {
                     b.Property<int>("Id")
@@ -835,6 +874,25 @@ namespace NetelloBusinessSolution.Data.Migrations
                     b.HasOne("NetelloBusinessSolution.Models.Person", "AssignedFE")
                         .WithMany()
                         .HasForeignKey("PersonId1");
+                });
+
+            modelBuilder.Entity("NetelloBusinessSolution.Models.TestModels.PROWorkReport", b =>
+                {
+                    b.HasOne("NetelloBusinessSolution.Models.Company", "Company")
+                        .WithMany()
+                        .HasForeignKey("CompanyId");
+
+                    b.HasOne("NetelloBusinessSolution.Models.Person", "AssignedPerson")
+                        .WithMany()
+                        .HasForeignKey("PersonId");
+
+                    b.HasOne("NetelloBusinessSolution.Models.Person", "OrderedBy")
+                        .WithMany()
+                        .HasForeignKey("PersonId1");
+
+                    b.HasOne("NetelloBusinessSolution.Models.PurchaseOrder", "PurchaseOrder")
+                        .WithMany()
+                        .HasForeignKey("PurchaseOrderId");
                 });
 
             modelBuilder.Entity("NetelloBusinessSolution.Models.WorkReport", b =>
