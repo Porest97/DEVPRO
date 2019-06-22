@@ -9,60 +9,61 @@
     <a asp-controller="Home" asp-action="Contacts">Tillbaka till Kontakters Hemsida</a>
 </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.AgeCategory)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Club)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Team)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Role)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FullName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhoneNumbers)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.AgeCategory)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Club)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Team)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Role)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FullName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumbers)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
 
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.OrderBy(x=>x.Club.ClubName)) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AgeCategory.AgeCategoryName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Club.ClubName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Team.TeamName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Role.RoleName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumbers)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderBy(x => x.Club.ClubName))
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AgeCategory.AgeCategoryName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Club.ClubName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Team.TeamName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Role.RoleName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumbers)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
 
-        </tr>
-}
-    </tbody>
-</table>
+                </tr>
+            }
+        </tbody>
+    </table>

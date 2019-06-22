@@ -32,14 +32,25 @@ namespace NetelloBusinessSolution.Models
 
         [Display(Name = "Fee per hour")]
         [DataType(DataType.Currency)]
-        public decimal? PaymentPerHour { get; set; }
+        public decimal PaymentPerHour { get; set; }
 
         [Display(Name = "Total Fee")]
         [DataType(DataType.Currency)]
-        public decimal? TotalPayment { get; set; }
+        public decimal TotalPayment { get; set; }
 
         [Display(Name = "Work Notes")]
         public string WorkNote { get; set; }
+
+        [Display(Name = "Payed")]
+        public bool Payed { get; set; } = false;
+
+        [Display(Name = "Amount Payed")]
+        [DataType(DataType.Currency)]
+        public decimal AmountPayed { get; set; }
+
+        [Display(Name = "Due To Pay")]
+        [DataType(DataType.Currency)]
+        public decimal DueToPay { get; set; }
 
 
     }

@@ -5,89 +5,121 @@
 }
 
 <h1>Work Reports</h1>
-<div class="row">
-    <div class="col-sm-2">
-        <p>Total Payment:</p>
+<div class="table table-striped">
+    <div class="row">
+        <div class="col-sm-2">
+            <p>Total Payment:</p>
+        </div>
+        <div class="col-sm-2">
+            @Model.Sum(i => i.TotalPayment)
+        </div>
+        <div class="col-sm-2">
+            <p>Total Amount Payed:</p>
+        </div>
+        <div class="col-sm-2">
+            @Model.Sum(i => i.AmountPayed)
+        </div>
+        <div class="col-sm-2">
+            <p>Amount To Pay:</p>
+        </div>
+        <div class="col-sm-2">
+            @Model.Sum(i => i.DueToPay)
+        </div>
     </div>
-    <div class="col-sm-10">
-        @Model.Sum(i => i.TotalPayment)
+    <div class="row">
+        <div class="col-sm-2">
+            <p>Number of hours worked:</p>
+        </div>
+        <div class="col-sm-10">
+            @Model.Sum(i => i.TimeWorked)
+        </div>
     </div>
+
+<a class="btn btn-success" asp-controller="WorkReports" asp-action="Create">Create New Report</a>
 </div>
-<div class="row">
-    <div class="col-sm-2">
-        <p>Number of hours worked:</p>
-    </div>
-    <div class="col-sm-10">
-        @Model.Sum(i => i.TimeWorked)
-    </div>
-</div>
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
-    <table class="table">
-        <thead>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessCentre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssignedFE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkStarted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkEnded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimeWorked)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentPerHour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPayment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkNote)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AmountPayed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Payed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DueToPay)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.BusinessCentre)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.AssignedFE)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.WorkStarted)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.WorkEnded)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.TimeWorked)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PaymentPerHour)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.TotalPayment)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.WorkNote)
-                </th>
-                <th></th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BusinessCentre.CwName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssignedFE.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WorkStarted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WorkEnded)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeWorked)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentPerHour)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalPayment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WorkNote)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AmountPayed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Payed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DueToPay)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id"class="btn btn-success">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.BusinessCentre.CwName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.AssignedFE.FullName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.WorkStarted)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.WorkEnded)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TimeWorked)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PaymentPerHour)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TotalPayment)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.WorkNote)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>

@@ -31,7 +31,8 @@ namespace NetelloBusinessSolution.Controllers
         public IActionResult Index(WorkReport workReport)
         {
             var applicationContext = _context.WorkReport.Include(w => w.AssignedFE).Include(w=> w.BusinessCentre);
-            workReport.TotalPayment = workReport.TimeWorked * workReport.PaymentPerHour;            
+            workReport.TotalPayment = workReport.TimeWorked * workReport.PaymentPerHour;
+            workReport.DueToPay = workReport.TimeWorked * workReport.PaymentPerHour - workReport.AmountPayed;
             return View(workReport);
         }
 
@@ -68,12 +69,13 @@ namespace NetelloBusinessSolution.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,BusinessCentreId,PersonId,WorkStarted,WorkEnded,TimeWorked,PaymentPerHour,TotalPayment,WorkNote")] WorkReport workReport)
+        public async Task<IActionResult> Create([Bind("Id,BusinessCentreId,PersonId,WorkStarted,WorkEnded,TimeWorked,PaymentPerHour,TotalPayment,WorkNote,Payed,AmountPayed,DueToPay")] WorkReport workReport)
         {
             if (ModelState.IsValid)
             {
                 var applicationContext = _context.WorkReport.Include(w => w.AssignedFE).Include(w => w.BusinessCentre);
-                workReport.TotalPayment = workReport.TimeWorked * workReport.PaymentPerHour;            
+                workReport.TotalPayment = workReport.TimeWorked * workReport.PaymentPerHour;
+                workReport.DueToPay = workReport.TimeWorked * workReport.PaymentPerHour - workReport.AmountPayed;
                 _context.Add(workReport);
 
                 await _context.SaveChangesAsync();
@@ -107,7 +109,7 @@ namespace NetelloBusinessSolution.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,BusinessCentreId,PersonId,WorkStarted,WorkEnded,TimeWorked,PaymentPerHour,TotalPayment,WorkNote")] WorkReport workReport)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,BusinessCentreId,PersonId,WorkStarted,WorkEnded,TimeWorked,PaymentPerHour,TotalPayment,WorkNote,Payed,AmountPayed,DueToPay")] WorkReport workReport)
         {
             if (id != workReport.Id)
             {
@@ -120,7 +122,7 @@ namespace NetelloBusinessSolution.Controllers
                 {
                     var applicationContext = _context.WorkReport.Include(w => w.AssignedFE).Include(w => w.BusinessCentre);
                     workReport.TotalPayment = workReport.TimeWorked * workReport.PaymentPerHour;
-                    
+                    workReport.DueToPay = workReport.TimeWorked * workReport.PaymentPerHour - workReport.AmountPayed;
                     _context.Update(workReport);
                     await _context.SaveChangesAsync();
                 }

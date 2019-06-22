@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetelloBusinessSolution.Data;
 
 namespace NetelloBusinessSolution.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190621162003_DueToPayAddedToPROWorkReports")]
+    partial class DueToPayAddedToPROWorkReports
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -659,21 +661,15 @@ namespace NetelloBusinessSolution.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<decimal>("AmountPayed");
-
                     b.Property<int?>("BusinessCentreId");
 
-                    b.Property<decimal>("DueToPay");
-
-                    b.Property<bool>("Payed");
-
-                    b.Property<decimal>("PaymentPerHour");
+                    b.Property<decimal?>("PaymentPerHour");
 
                     b.Property<int?>("PersonId");
 
                     b.Property<decimal>("TimeWorked");
 
-                    b.Property<decimal>("TotalPayment");
+                    b.Property<decimal?>("TotalPayment");
 
                     b.Property<DateTime>("WorkEnded");
 

@@ -9,8 +9,20 @@
     <div class="col-sm-2">
         <p>Total Payment:</p>
     </div>
-    <div class="col-sm-10">
+    <div class="col-sm-2">
         @Model.Sum(i => i.TotalPayment)
+    </div>
+    <div class="col-sm-2">
+        <p>Total Amount Payed:</p>
+    </div>
+    <div class="col-sm-2">
+        @Model.Sum(i => i.AmountPayed)
+    </div>
+    <div class="col-sm-2">
+        <p>Amount To Pay:</p>
+    </div>
+    <div class="col-sm-2">
+        @Model.Sum(i => i.DueToPay)
     </div>
 </div>
 <div class="row">
@@ -57,49 +69,67 @@
             <th>
                 @Html.DisplayNameFor(model => model.WorkNote)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AmountPayed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Payed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DueToPay)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Company.CompanyName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AssignedPerson.CName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.OrderedBy.CName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.WorkStarted)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.WorkEnded)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TimeWorked)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PaymentPerHour)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TotalPayment)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PurchaseOrder.POName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.WorkNote)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignedPerson.CName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderedBy.CName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkStarted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkEnded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeWorked)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentPerHour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPayment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchaseOrder.POName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkNote)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmountPayed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Payed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DueToPay)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

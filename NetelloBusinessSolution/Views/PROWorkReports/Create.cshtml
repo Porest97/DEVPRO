@@ -14,15 +14,15 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="CompanyId" class="control-label"></label>
-                <select asp-for="CompanyId" class ="form-control" asp-items="ViewBag.CompanyId"></select>
+                <select asp-for="CompanyId" class="form-control" asp-items="ViewBag.CompanyId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="PersonId" class="control-label"></label>
-                <select asp-for="PersonId" class ="form-control" asp-items="ViewBag.PersonId"></select>
+                <select asp-for="PersonId" class="form-control" asp-items="ViewBag.PersonId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="PersonId1" class="control-label"></label>
-                <select asp-for="PersonId1" class ="form-control" asp-items="ViewBag.PersonId1"></select>
+                <select asp-for="PersonId1" class="form-control" asp-items="ViewBag.PersonId1"></select>
             </div>
             <div class="form-group">
                 <label asp-for="WorkStarted" class="control-label"></label>
@@ -51,7 +51,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="PurchaseOrderId" class="control-label"></label>
-                <select asp-for="PurchaseOrderId" class ="form-control" asp-items="ViewBag.PurchaseOrderId"></select>
+                <select asp-for="PurchaseOrderId" class="form-control" asp-items="ViewBag.PurchaseOrderId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="WorkNote" class="control-label"></label>
@@ -59,8 +59,23 @@
                 <span asp-validation-for="WorkNote" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <label asp-for="AmountPayed" class="control-label"></label>
+                <input asp-for="AmountPayed" class="form-control" />
+                <span asp-validation-for="AmountPayed" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Payed" class="control-label"></label>
+                <input asp-for="Payed" class="form-control" />
+                <span asp-validation-for="Payed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DueToPay" class="control-label"></label>
+                <input asp-for="DueToPay" class="form-control" />
+                <span asp-validation-for="DueToPay" class="text-danger"></span>
+            </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
         </form>
     </div>
 </div>

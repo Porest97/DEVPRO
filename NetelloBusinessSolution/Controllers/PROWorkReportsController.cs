@@ -27,11 +27,12 @@ namespace NetelloBusinessSolution.Controllers
         }
         // GET: WorkReports HttpPost !
         [HttpPost]
-        public IActionResult Index(PROWorkReport pROworkReport)
+        public IActionResult Index(PROWorkReport pROWorkReport)
         {
             var applicationDbContext = _context.PROWorkReport.Include(p => p.AssignedPerson).Include(p => p.Company).Include(p => p.OrderedBy).Include(p => p.PurchaseOrder);
-            pROworkReport.TotalPayment = pROworkReport.TimeWorked * pROworkReport.PaymentPerHour;
-            return View(pROworkReport);
+            pROWorkReport.TotalPayment = pROWorkReport.TimeWorked * pROWorkReport.PaymentPerHour;
+            pROWorkReport.DueToPay = pROWorkReport.TimeWorked * pROWorkReport.PaymentPerHour - pROWorkReport.AmountPayed;
+            return View(pROWorkReport);
         }
 
         // GET: PROWorkReports/Details/5
@@ -71,12 +72,14 @@ namespace NetelloBusinessSolution.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CompanyId,PersonId,PersonId1,WorkStarted,WorkEnded,TimeWorked,PaymentPerHour,TotalPayment,PurchaseOrderId,WorkNote")] PROWorkReport pROWorkReport)
+        public async Task<IActionResult> Create([Bind("Id,CompanyId,PersonId,PersonId1,WorkStarted,WorkEnded,TimeWorked,PaymentPerHour,TotalPayment,PurchaseOrderId,WorkNote,AmountPayed,Payed")] PROWorkReport pROWorkReport)
         {
             if (ModelState.IsValid)
             {
                 var applicationDbContext = _context.PROWorkReport.Include(p => p.AssignedPerson).Include(p => p.Company).Include(p => p.OrderedBy).Include(p => p.PurchaseOrder);
                 pROWorkReport.TotalPayment = pROWorkReport.TimeWorked * pROWorkReport.PaymentPerHour;
+                pROWorkReport.DueToPay = pROWorkReport.TimeWorked * pROWorkReport.PaymentPerHour - pROWorkReport.AmountPayed;
+
                 _context.Add(pROWorkReport);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -113,7 +116,7 @@ namespace NetelloBusinessSolution.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CompanyId,PersonId,PersonId1,WorkStarted,WorkEnded,TimeWorked,PaymentPerHour,TotalPayment,PurchaseOrderId,WorkNote")] PROWorkReport pROWorkReport)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,CompanyId,PersonId,PersonId1,WorkStarted,WorkEnded,TimeWorked,PaymentPerHour,TotalPayment,PurchaseOrderId,WorkNote,AmountPayed,Payed")] PROWorkReport pROWorkReport)
         {
             if (id != pROWorkReport.Id)
             {
@@ -126,6 +129,7 @@ namespace NetelloBusinessSolution.Controllers
                 {
                     var applicationDbContext = _context.PROWorkReport.Include(p => p.AssignedPerson).Include(p => p.Company).Include(p => p.OrderedBy).Include(p => p.PurchaseOrder);
                     pROWorkReport.TotalPayment = pROWorkReport.TimeWorked * pROWorkReport.PaymentPerHour;
+                    pROWorkReport.DueToPay = pROWorkReport.TimeWorked * pROWorkReport.PaymentPerHour - pROWorkReport.AmountPayed;
 
                     _context.Update(pROWorkReport);
                     await _context.SaveChangesAsync();
