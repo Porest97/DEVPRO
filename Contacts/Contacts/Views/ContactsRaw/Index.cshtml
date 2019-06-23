@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Contacts.Models.ContactRaw>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Kontakter i Textformat som går att filtrera ut mot Excel</h1>
+
+<form asp-controller="ContactsRaw" asp-action="Index">
+    <p>
+        Sökning: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<div>
+    <a asp-controller="Home" asp-action="Contacts">Tillbaka till Kontakters Hemsida</a>
+</div>
+@*<p>
+        <a asp-action="Create">Create New</a>
+    </p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayText("--------")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Club)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Team)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sport)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.District)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumbers)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Season)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AgeCategory)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><a asp-action="Details" asp-route-id="@item.Id">Details</a></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Club)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Team)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Role)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sport)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.District)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumbers)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.Season)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AgeCategory)
+                </td>
+                
+            </tr>
+        }
+    </tbody>
+</table>

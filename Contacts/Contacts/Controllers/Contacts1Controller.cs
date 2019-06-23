@@ -19,8 +19,25 @@ namespace Contacts.Controllers
         }
 
         // GET: Contacts1
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(String searchString)
         {
+            // Query for retrieving all Contacts
+            var contacts = from c in _context.Contact
+                           select c;
+            // Query for retrieving referees that contain the searchstring
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                contacts = _context.Contact
+                    .Where(c => c.Email.ToLower().Contains(searchString.ToLower()) ||
+                    c.FullName.ToLower().Contains(searchString.ToLower()) ||
+                    c.District.DistrictName.ToLower().Contains(searchString.ToLower()) ||
+                    c.Club.ClubName.ToLower().Contains(searchString.ToLower()) ||
+                    c.PhoneNumbers.ToLower().Contains(searchString.ToLower()) ||
+                    c.Role.RoleName.ToLower().Contains(searchString.ToLower()) ||
+                    c.Season.SeasonName.ToLower().Contains(searchString.ToLower())
+                    );
+
+            }
             var contactsContext = _context.Contact.Include(c => c.AgeCategory).Include(c => c.Club).Include(c => c.District).Include(c => c.Role).Include(c => c.Season).Include(c => c.Sport).Include(c => c.Team);
             return View(await contactsContext.ToListAsync());
         }

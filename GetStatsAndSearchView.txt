@@ -1,0 +1,43 @@
+private void GetStats()
+        {
+            ViewBag.DocCount = _context.Document.Where(d => d.Id != 0).Count();
+           // ViewBag.CourseCount = _context.Course.Where(c => c.Name != null).Count();
+            ViewBag.PersonCount = _context.Person.Where(p => p.Id != 0).Count();
+            ViewBag.WorkReportsCount = _context.WorkReport.Where(w => w.Id != 0).Count();
+            ViewBag.PROWorReportsCount = _context.PROWorkReport.Where(p => p.Id != 0).Count();
+            ViewBag.MeetingsCount = _context.Meeting.Where(m => m.Id != 0).Count();
+            ViewBag.BusinessCentresCount = _context.BusinessCentre.Where(b => b.Id != 0).Count();
+        }
+		
+		
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ public IActionResult SearchView()
+        {
+            var person_email = _context.Users.Select(p => p.Email);
+            //var student_course_id = _context.Person.Select(s => s.Course.Id);
+            //var courses = _context.Course.Select(c => c.Name);
+
+            var users = _context.Person.ToList();
+
+            var searchViewModel = new SearchViewModel()
+            {
+                People = _context.Person.ToList(),
+                BusinessCentres = _context.BusinessCentre.Where(b => b.Id != 0).ToList(),
+                Companies = _context.Company.Where(c => c.Id != 0).ToList(),
+                Documents = _context.Document.Where(d => d.Id != 0).ToList(),
+                DworkinWiFiSurveyResults = _context.DworkinWiFiSurveyResult.Where(dws => dws.Id != 0).ToList(),
+                Invoices = _context.Invoice.Where(i=>i.Id !=0).ToList(),
+                Meetings = _context.Meeting.Where(m => m.Id != 0).ToList(),
+                PROWorkReports = _context.PROWorkReport.Where(pr => pr.Id != 0).ToList(),
+                PurchaseOrders = _context.PurchaseOrder.Where(po => po.Id != 0).ToList(),
+                SupportCases = _context.SupportCase.Where(su=>su.Id != 0).ToList(),
+                SupportTickets = _context.SupportTicket.Where(st => st.Id != 0).ToList(),
+                WorkReports = _context.WorkReport.Where(wr=> wr.Id !=0).ToList()
+
+            };
+
+            return View(searchViewModel);
+
+
+			

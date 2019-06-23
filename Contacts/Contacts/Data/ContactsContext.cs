@@ -30,5 +30,7 @@ namespace Contacts.Models
 
         public DbSet<Contacts.Models.Season> Season { get; set; }
 
+        public DbSet<Contacts.Models.ContactRaw> ContactRaw { get; set; }
+
     }
 }
