@@ -27,14 +27,14 @@ namespace NetelloBusinessSolution.Models
         [Display(Name = "Work Ended")]
         public DateTime WorkEnded { get; set; }
 
-        [Display(Name = "Time On Site")]
+        [Display(Name = "ToS(H)")]
         public decimal TimeWorked { get; set; }
 
-        [Display(Name = "Fee per hour")]
+        [Display(Name = "CpH(kr)")]
         [DataType(DataType.Currency)]
         public decimal PaymentPerHour { get; set; }
 
-        [Display(Name = "Total Fee")]
+        [Display(Name = "TF(kr)")]
         [DataType(DataType.Currency)]
         public decimal TotalPayment { get; set; }
 
@@ -44,11 +44,11 @@ namespace NetelloBusinessSolution.Models
         [Display(Name = "Payed")]
         public bool Payed { get; set; } = false;
 
-        [Display(Name = "Amount Payed")]
+        [Display(Name = "Payed(kr)")]
         [DataType(DataType.Currency)]
         public decimal AmountPayed { get; set; }
 
-        [Display(Name = "Due To Pay")]
+        [Display(Name = "Remaining")]
         [DataType(DataType.Currency)]
         public decimal DueToPay { get; set; }
 
