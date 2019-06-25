@@ -30,5 +30,6 @@ namespace NetelloBusinessSolution.Data
         public DbSet<NetelloBusinessSolution.Models.Invoice> Invoice { get; set; }
         public DbSet<NetelloBusinessSolution.Models.Article> Article { get; set; }
         public DbSet<NetelloBusinessSolution.Models.TestModels.PROWorkReport> PROWorkReport { get; set; }
+        public DbSet<NetelloBusinessSolution.Models.TestModels.Order> Order { get; set; }
     }
 }

@@ -21,6 +21,9 @@
         <thead>
             <tr>
                 <th>
+                    @Html.DisplayNameFor(model => model.District)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.AgeCategory)
                 </th>
                 <th>
@@ -48,30 +51,33 @@
         <tbody>
             @foreach (var item in Model.OrderBy(x => x.Club.ClubName))
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.AgeCategory.AgeCategoryName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Club.ClubName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Team.TeamName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Role.RoleName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FullName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PhoneNumbers)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </td>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.District.DistrictName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AgeCategory.AgeCategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Club.ClubName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Team.TeamName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Role.RoleName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumbers)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
 
-                </tr>
+            </tr>
             }
         </tbody>
     </table>
