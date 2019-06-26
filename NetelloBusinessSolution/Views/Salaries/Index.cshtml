@@ -1,0 +1,124 @@
+﻿@model IEnumerable<NetelloBusinessSolution.Models.TestModels.Salary>
+
+@{
+    ViewData["Title"] = "Slaries";
+}
+
+<h1>Salaries</h1>
+
+<div class="row">
+    <div class="col-sm-2">
+        <p>Total Salary:</p>
+    </div>
+    <div class="col-sm-2">
+        @Model.Sum(i => i.Total)
+    </div>
+    <div class="col-sm-2">
+        <p>Total Amount Paid:</p>
+    </div>
+    <div class="col-sm-2">
+        @Model.Sum(i => i.AmountPayedOut)
+    </div>
+    <div class="col-sm-2">
+        <p>Amount To Pay:</p>
+    </div>
+    <div class="col-sm-2">
+        @Model.Sum(i => i.AmountDueToPayOut)
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <p>Number of hours worked:</p>
+    </div>
+    <div class="col-sm-10">
+        @Model.Sum(i => i.Hours)
+    </div>
+</div>
+<p>
+    <a class="btn btn-success btn-sm" asp-controller="Salaries" asp-action="Create">Create New Salaryperiod</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PeriodStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PeriodEndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emplyee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Article)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PayedOut)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AmountPayedOut)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatePayedOut)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AmountDueToPayOut)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderBy(x => x.PayedOut))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PeriodStartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PeriodEndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Emplyee.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Article.ArticleDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hours)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PayedOut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AmountPayedOut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DatePayedOut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AmountDueToPayOut)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-success btn-sm">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

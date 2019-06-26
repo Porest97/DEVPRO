@@ -35,7 +35,7 @@
         </div>
     </div>
 
-<a class="btn btn-success" asp-controller="WorkReports" asp-action="Create">Create New Report</a>
+<a class="btn btn-success btn-sm" asp-controller="WorkReports" asp-action="Create">Create New Report</a>
 </div>
 
 <table class="table table-striped">
@@ -115,9 +115,9 @@
                     @Html.DisplayFor(modelItem => item.DueToPay)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">Edit</a>
-                    <a asp-action="Details" asp-route-id="@item.Id"class="btn btn-success">Details</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id"class="btn btn-success btn-sm">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
                 </td>
             </tr>
         }
