@@ -35,12 +35,17 @@
         </div>
     </div>
 
-<a class="btn btn-success btn-sm" asp-controller="WorkReports" asp-action="Create">Create New Report</a>
+    <a class="btn btn-success btn-sm" asp-controller="WorkReports" asp-action="Create">Create New Report</a>
+    <a class="btn btn-success btn-sm" asp-controller="WorkReports" asp-action="ListWR">List all Work Reports for printing  !</a>
+
 </div>
 
 <table class="table table-striped">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DWorkinTicketNumber)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.BusinessCentre)
             </th>
@@ -78,48 +83,51 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.OrderBy(x => x.Payed))
+        @foreach (var item in Model.OrderByDescending(x => x.WorkEnded))
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BusinessCentre.CwName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AssignedFE.FullName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.WorkStarted)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.WorkEnded)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TimeWorked)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PaymentPerHour)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TotalPayment)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.WorkNote)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AmountPayed)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Payed)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DueToPay)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm">Edit</a>
-                    <a asp-action="Details" asp-route-id="@item.Id"class="btn btn-success btn-sm">Details</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DWorkinTicketNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusinessCentre.CwName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignedFE.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkStarted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkEnded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeWorked)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentPerHour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPayment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkNote)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AmountPayed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Payed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DueToPay)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-success btn-sm">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

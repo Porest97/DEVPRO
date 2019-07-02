@@ -53,5 +53,9 @@ namespace NetelloBusinessSolution.Models
         public decimal DueToPay { get; set; }
 
 
+        [Display(Name = "DWK Ticket")]
+        public string DWorkinTicketNumber { get; set; }
+
+
     }
 }
