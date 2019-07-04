@@ -1,7 +1,10 @@
 ﻿@model IEnumerable<Contacts.Models.Contact>
-@*<p>
-        <a asp-action="Create">Create New</a>
-    </p>*@
+<p>
+   <a asp-action="Create">Create New</a>
+</p>
+<p class="btn btn-sm btn-success">
+    <a asp-action="FastCreate">Create Many in a sequence !</a>
+</p>
 <table class="table">
     <thead>
         <tr>
@@ -99,13 +102,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.AgeCategory.AgeCategoryName)
             </td>
-
-
-            @*  <td>
-            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-        </td>*@
+            <td>
+            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>            
+            </td>
         </tr>
         }
     </tbody>
