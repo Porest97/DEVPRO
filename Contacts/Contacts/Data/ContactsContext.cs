@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Contacts.Models;
+using Contacts.Models.Schedule;
 
 namespace Contacts.Models
 {
@@ -31,6 +32,10 @@ namespace Contacts.Models
         public DbSet<Contacts.Models.Season> Season { get; set; }
 
         public DbSet<Contacts.Models.ContactRaw> ContactRaw { get; set; }
+
+        public DbSet<Contacts.Models.Schedule.Person> Person { get; set; }
+
+        public DbSet<Contacts.Models.Schedule.Schedule> Schedule { get; set; }
 
     }
 }

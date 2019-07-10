@@ -31,6 +31,13 @@ namespace Contacts.Controllers
             return View(await contactsContext.ToListAsync());
         }
 
+        // GET: Contacts
+        public async Task<IActionResult> Index1()
+        {
+            var contactsContext = _context.Contact.Include(c => c.AgeCategory).Include(c => c.Club).Include(c => c.District).Include(c => c.Role).Include(c => c.Season).Include(c => c.Sport).Include(c => c.Team);
+            return View(await contactsContext.ToListAsync());
+        }
+
         // GET: WorkReports to ListContacts
         public IActionResult ListContacts()
         {

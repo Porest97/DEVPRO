@@ -48,7 +48,10 @@ namespace Contacts.Controllers
         {
             return View();
         }
-        
+        public IActionResult Schedules()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {

@@ -2,9 +2,8 @@
 <p>
    <a asp-action="Create">Create New</a>
 </p>
-<p class="btn btn-sm btn-success">
-    <a asp-action="FastCreate">Create Many in a sequence !</a>
-</p>
+<p class="btn btn-sm btn-success"><a asp-action="FastCreate">Create Many in a sequence !</a></p>
+<div><a class="btn btn-success btn-sm" asp-controller="Home" asp-action="Contacts">Back to Contacts Main Page !</a></div>
 <table class="table">
     <thead>
         <tr>
@@ -103,8 +102,8 @@
                 @Html.DisplayFor(modelItem => item.AgeCategory.AgeCategoryName)
             </td>
             <td>
-            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>            
-            </td>
+        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+        </td>
         </tr>
         }
     </tbody>

@@ -32,8 +32,11 @@ namespace NetelloBusinessSolution.Controllers
         public IActionResult Index(WorkReport workReport)
         {
             var applicationContext = _context.WorkReport.Include(w => w.AssignedFE).Include(w=> w.BusinessCentre);
-            workReport.TotalPayment = workReport.TimeWorked * workReport.PaymentPerHour;
-            workReport.DueToPay = workReport.TimeWorked * workReport.PaymentPerHour - workReport.AmountPayed;
+            workReport.TotalPayment = workReport.TimeWorked
+                * workReport.PaymentPerHour;
+            workReport.DueToPay = workReport.TimeWorked 
+                * workReport.PaymentPerHour 
+                - workReport.AmountPayed;
             return View(workReport);
         }
         // GET: WorkReports to ListWR
@@ -91,10 +94,12 @@ namespace NetelloBusinessSolution.Controllers
             if (ModelState.IsValid)
             {
                 var applicationContext = _context.WorkReport.Include(w => w.AssignedFE).Include(w => w.BusinessCentre);
-                workReport.TotalPayment = workReport.TimeWorked * workReport.PaymentPerHour;
-                workReport.DueToPay = workReport.TimeWorked * workReport.PaymentPerHour - workReport.AmountPayed;
+                workReport.TotalPayment = workReport.TimeWorked 
+                    * workReport.PaymentPerHour;
+                workReport.DueToPay = workReport.TimeWorked 
+                    * workReport.PaymentPerHour 
+                    - workReport.AmountPayed;
                 _context.Add(workReport);
-
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -138,8 +143,11 @@ namespace NetelloBusinessSolution.Controllers
                 try
                 {
                     var applicationContext = _context.WorkReport.Include(w => w.AssignedFE).Include(w => w.BusinessCentre);
-                    workReport.TotalPayment = workReport.TimeWorked * workReport.PaymentPerHour;
-                    workReport.DueToPay = workReport.TimeWorked * workReport.PaymentPerHour - workReport.AmountPayed;
+                    workReport.TotalPayment = workReport.TimeWorked 
+                        * workReport.PaymentPerHour;
+                    workReport.DueToPay = workReport.TimeWorked 
+                        * workReport.PaymentPerHour 
+                        - workReport.AmountPayed;
                     _context.Update(workReport);
                     await _context.SaveChangesAsync();
                 }
