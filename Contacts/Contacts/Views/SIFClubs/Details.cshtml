@@ -1,0 +1,90 @@
+﻿@model Contacts.Models.SIFModels.SIFClub
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>SIFClub</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ClubNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ClubNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ClubName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ClubName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ShortName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ShortName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ClubAddress)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ClubAddress)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ClubCity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ClubCity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ClubCountry)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ClubCountry)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ClubDistrict)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ClubDistrict)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Organizer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Organizer)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HomeArena)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HomeArena)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ActiveIOL)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ActiveIOL)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ClubNote)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ClubNote)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

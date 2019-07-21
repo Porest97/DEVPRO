@@ -1,0 +1,132 @@
+﻿@model Contacts.Models.SIFModels.SIFArena
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>SIFArena</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ArenaNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ArenaNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ArenanName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ArenanName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ArenanAddress)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ArenanAddress)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ArenanZipCode)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ArenanZipCode)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ArenanCity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ArenanCity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ArenanCountry)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ArenanCountry)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ArenanDistrict)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ArenanDistrict)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ArenanCategory)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ArenanCategory)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ArenanPhoneNumbers)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ArenanPhoneNumbers)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ArenanCapacity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ArenanCapacity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ArenanStanding)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ArenanStanding)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ArenanBench)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ArenanBench)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ArenanChair)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ArenanChair)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ArenanSoftChair)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ArenanSoftChair)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ArenanHandicapSlots)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ArenanHandicapSlots)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ArenanBuildYear)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ArenanBuildYear)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ArenanReBuildYear)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ArenanReBuildYear)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ArenanLatestInspected)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ArenanLatestInspected)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ArenanLastChecked)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ArenanLastChecked)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

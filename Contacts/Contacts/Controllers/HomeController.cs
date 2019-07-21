@@ -53,6 +53,11 @@ namespace Contacts.Controllers
             return View();
         }
 
+        public IActionResult SIFLists()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

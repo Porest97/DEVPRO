@@ -1,0 +1,107 @@
+﻿@model IEnumerable<Contacts.Models.SIFModels.SIFClub>
+
+@{
+    ViewData["Title"] = "SIFClubs";
+}
+
+<h1>SIFs alla klubbar !</h1>
+<form asp-controller="SIFClubs" asp-action="Index">
+    <p>
+        Sök Disrikt: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<div><a class="btn btn-success btn-sm" asp-controller="Home" asp-action="SIFLists">Back to SIFLists Main Page !</a></div>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClubNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClubName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShortName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClubAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClubCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClubCountry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClubDistrict)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Organizer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HomeArena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActiveIOL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClubNote)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.OrderBy(c=>c.ClubDistrict)) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClubNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClubName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShortName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClubAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClubCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClubCountry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClubDistrict)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Organizer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeArena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActiveIOL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClubNote)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

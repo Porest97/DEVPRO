@@ -4,14 +4,16 @@ using Contacts.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Contacts.Migrations
 {
     [DbContext(typeof(ContactsContext))]
-    partial class ContactsContextModelSnapshot : ModelSnapshot
+    [Migration("20190714144349_SIFClubAdded")]
+    partial class SIFClubAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -245,51 +247,6 @@ namespace Contacts.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("SIFClub");
-                });
-
-            modelBuilder.Entity("Contacts.Models.SIFModels.SIFRef", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("City");
-
-                    b.Property<string>("Email");
-
-                    b.Property<string>("FirstName");
-
-                    b.Property<string>("LastName");
-
-                    b.Property<string>("PhoneNumber1");
-
-                    b.Property<string>("PhoneNumber2");
-
-                    b.Property<string>("RefCategory");
-
-                    b.Property<string>("RefCategoryType");
-
-                    b.Property<string>("RefClub");
-
-                    b.Property<string>("RefDistrict");
-
-                    b.Property<string>("RefNumber");
-
-                    b.Property<string>("RefType");
-
-                    b.Property<string>("SSN");
-
-                    b.Property<string>("SeasonRegistred");
-
-                    b.Property<string>("Status");
-
-                    b.Property<string>("StreetAddress");
-
-                    b.Property<string>("ZipCode");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SIFRef");
                 });
 
             modelBuilder.Entity("Contacts.Models.Schedule.Person", b =>

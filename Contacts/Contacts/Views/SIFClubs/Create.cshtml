@@ -1,0 +1,85 @@
+﻿@model Contacts.Models.SIFModels.SIFClub
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>SIFClub</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ClubNumber" class="control-label"></label>
+                <input asp-for="ClubNumber" class="form-control" />
+                <span asp-validation-for="ClubNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClubName" class="control-label"></label>
+                <input asp-for="ClubName" class="form-control" />
+                <span asp-validation-for="ClubName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShortName" class="control-label"></label>
+                <input asp-for="ShortName" class="form-control" />
+                <span asp-validation-for="ShortName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClubAddress" class="control-label"></label>
+                <input asp-for="ClubAddress" class="form-control" />
+                <span asp-validation-for="ClubAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClubCity" class="control-label"></label>
+                <input asp-for="ClubCity" class="form-control" />
+                <span asp-validation-for="ClubCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClubCountry" class="control-label"></label>
+                <input asp-for="ClubCountry" class="form-control" />
+                <span asp-validation-for="ClubCountry" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClubDistrict" class="control-label"></label>
+                <input asp-for="ClubDistrict" class="form-control" />
+                <span asp-validation-for="ClubDistrict" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Organizer" class="control-label"></label>
+                <input asp-for="Organizer" class="form-control" />
+                <span asp-validation-for="Organizer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HomeArena" class="control-label"></label>
+                <input asp-for="HomeArena" class="form-control" />
+                <span asp-validation-for="HomeArena" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActiveIOL" class="control-label"></label>
+                <input asp-for="ActiveIOL" class="form-control" />
+                <span asp-validation-for="ActiveIOL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClubNote" class="control-label"></label>
+                <input asp-for="ClubNote" class="form-control" />
+                <span asp-validation-for="ClubNote" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
