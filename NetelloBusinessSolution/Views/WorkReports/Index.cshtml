@@ -78,7 +78,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.OrderBy(x => x.Payed))
+        @foreach (var item in Model.OrderByDescending(x => x.WorkStarted))
         {
             <tr>
                 <td>
