@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Kontakter i Textformat som går att filtrera ut mot Excel</h1>
+<h1>Alla Kontakter med sökfunktion !</h1>
 
 <form asp-controller="ContactsRaw" asp-action="Index">
     <p>
@@ -13,12 +13,9 @@
     </p>
 </form>
 
-<div>
-    <a asp-controller="Home" asp-action="Contacts">Tillbaka till Kontakters Hemsida</a>
-</div>
-@*<p>
-        <a asp-action="Create">Create New</a>
-    </p>*@
+<div><a class="btn btn-success btn-sm" asp-controller="Home" asp-action="Contacts">Back to Contacts Main Page !</a></div>
+
+
 <table class="table">
     <thead>
         <tr>

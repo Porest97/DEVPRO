@@ -1,0 +1,68 @@
+﻿@model NetelloBusinessSolution.FinacialManagement.ViewModels.WorkReportViewModel
+
+<div class="row">
+    <div class="col-sm-2">
+    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img id="brand_img" src="~/img/netello-logo10Procent.png" /></a>
+    </div>    
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkReports[0].DWorkinTicketNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkReports[0].BusinessCentre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkReports[0].AssignedFE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkReports[0].WorkStarted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkReports[0].WorkEnded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkReports[0].TimeWorked)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkReports[0].WorkNote)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.WorkReports.OrderBy(w=> w.DWorkinTicketNumber)) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DWorkinTicketNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusinessCentre.CwName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignedFE.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkStarted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkEnded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeWorked)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkNote)
+            </td>                      
+        </tr>}
+    </tbody>    
+</table>
+<div class="row col-sm-10"><p>Total hours : </p>@Model.TotalTimeWorked</div>
+<div class="row col-sm-10"><p>Total Payment : </p>@Model.TotalPayment</div>
+<div class="row col-sm-10"><p>Total Due To Pay : </p>@Model.TotalDueToPay</div>
+
+<div>
+    <a class="btn btn-success btn-sm" asp-controller="WorkReports" asp-action="Index">Back to Work Reports !</a>
+</div>

@@ -48,7 +48,15 @@ namespace Contacts.Controllers
         {
             return View();
         }
-        
+        public IActionResult Schedules()
+        {
+            return View();
+        }
+
+        public IActionResult SIFLists()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {

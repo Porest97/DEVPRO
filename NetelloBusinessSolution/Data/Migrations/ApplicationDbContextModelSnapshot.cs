@@ -723,6 +723,8 @@ namespace NetelloBusinessSolution.Data.Migrations
 
                     b.Property<int?>("BusinessCentreId");
 
+                    b.Property<string>("DWorkinTicketNumber");
+
                     b.Property<decimal>("DueToPay");
 
                     b.Property<bool>("Payed");

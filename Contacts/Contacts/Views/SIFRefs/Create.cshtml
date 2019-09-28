@@ -1,0 +1,110 @@
+﻿@model Contacts.Models.SIFModels.SIFRef
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>SIFRef</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RefNumber" class="control-label"></label>
+                <input asp-for="RefNumber" class="form-control" />
+                <span asp-validation-for="RefNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SSN" class="control-label"></label>
+                <input asp-for="SSN" class="form-control" />
+                <span asp-validation-for="SSN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RefType" class="control-label"></label>
+                <input asp-for="RefType" class="form-control" />
+                <span asp-validation-for="RefType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RefCategory" class="control-label"></label>
+                <input asp-for="RefCategory" class="form-control" />
+                <span asp-validation-for="RefCategory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RefCategoryType" class="control-label"></label>
+                <input asp-for="RefCategoryType" class="form-control" />
+                <span asp-validation-for="RefCategoryType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RefDistrict" class="control-label"></label>
+                <input asp-for="RefDistrict" class="form-control" />
+                <span asp-validation-for="RefDistrict" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RefClub" class="control-label"></label>
+                <input asp-for="RefClub" class="form-control" />
+                <span asp-validation-for="RefClub" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StreetAddress" class="control-label"></label>
+                <input asp-for="StreetAddress" class="form-control" />
+                <span asp-validation-for="StreetAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZipCode" class="control-label"></label>
+                <input asp-for="ZipCode" class="form-control" />
+                <span asp-validation-for="ZipCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber1" class="control-label"></label>
+                <input asp-for="PhoneNumber1" class="form-control" />
+                <span asp-validation-for="PhoneNumber1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber2" class="control-label"></label>
+                <input asp-for="PhoneNumber2" class="form-control" />
+                <span asp-validation-for="PhoneNumber2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeasonRegistred" class="control-label"></label>
+                <input asp-for="SeasonRegistred" class="form-control" />
+                <span asp-validation-for="SeasonRegistred" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

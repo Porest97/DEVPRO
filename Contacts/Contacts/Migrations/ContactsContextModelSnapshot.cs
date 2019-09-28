@@ -163,6 +163,207 @@ namespace Contacts.Migrations
                     b.ToTable("Role");
                 });
 
+            modelBuilder.Entity("Contacts.Models.SIFModels.SIFArena", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ArenaNumber");
+
+                    b.Property<string>("ArenanAddress");
+
+                    b.Property<string>("ArenanBench");
+
+                    b.Property<string>("ArenanBuildYear");
+
+                    b.Property<string>("ArenanCapacity");
+
+                    b.Property<string>("ArenanCategory");
+
+                    b.Property<string>("ArenanChair");
+
+                    b.Property<string>("ArenanCity");
+
+                    b.Property<string>("ArenanCountry");
+
+                    b.Property<string>("ArenanDistrict");
+
+                    b.Property<string>("ArenanHandicapSlots");
+
+                    b.Property<string>("ArenanLastChecked");
+
+                    b.Property<string>("ArenanLatestInspected");
+
+                    b.Property<string>("ArenanName");
+
+                    b.Property<string>("ArenanPhoneNumbers");
+
+                    b.Property<string>("ArenanReBuildYear");
+
+                    b.Property<string>("ArenanSoftChair");
+
+                    b.Property<string>("ArenanStanding");
+
+                    b.Property<string>("ArenanZipCode");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SIFArena");
+                });
+
+            modelBuilder.Entity("Contacts.Models.SIFModels.SIFClub", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ActiveIOL");
+
+                    b.Property<string>("ClubAddress");
+
+                    b.Property<string>("ClubCity");
+
+                    b.Property<string>("ClubCountry");
+
+                    b.Property<string>("ClubDistrict");
+
+                    b.Property<string>("ClubName");
+
+                    b.Property<string>("ClubNote");
+
+                    b.Property<string>("ClubNumber");
+
+                    b.Property<string>("HomeArena");
+
+                    b.Property<string>("Organizer");
+
+                    b.Property<string>("ShortName");
+
+                    b.Property<string>("Status");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SIFClub");
+                });
+
+            modelBuilder.Entity("Contacts.Models.SIFModels.SIFRef", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("City");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("PhoneNumber1");
+
+                    b.Property<string>("PhoneNumber2");
+
+                    b.Property<string>("RefCategory");
+
+                    b.Property<string>("RefCategoryType");
+
+                    b.Property<string>("RefClub");
+
+                    b.Property<string>("RefDistrict");
+
+                    b.Property<string>("RefNumber");
+
+                    b.Property<string>("RefType");
+
+                    b.Property<string>("SSN");
+
+                    b.Property<string>("SeasonRegistred");
+
+                    b.Property<string>("Status");
+
+                    b.Property<string>("StreetAddress");
+
+                    b.Property<string>("ZipCode");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SIFRef");
+                });
+
+            modelBuilder.Entity("Contacts.Models.Schedule.Person", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email1");
+
+                    b.Property<string>("Email2");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("PhoneNumber1");
+
+                    b.Property<string>("PhoneNumber2");
+
+                    b.Property<string>("PhoneNumber3");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Person");
+                });
+
+            modelBuilder.Entity("Contacts.Models.Schedule.Schedule", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Friday");
+
+                    b.Property<decimal>("HoursFriday");
+
+                    b.Property<decimal>("HoursMonday");
+
+                    b.Property<decimal>("HoursSaturday");
+
+                    b.Property<decimal>("HoursSunday");
+
+                    b.Property<decimal>("HoursThursday");
+
+                    b.Property<decimal>("HoursTuesday");
+
+                    b.Property<decimal>("HoursWednesday");
+
+                    b.Property<string>("Monday");
+
+                    b.Property<int?>("PersonId");
+
+                    b.Property<string>("Saturday");
+
+                    b.Property<string>("Sunday");
+
+                    b.Property<string>("Thursday");
+
+                    b.Property<decimal>("TotalHours");
+
+                    b.Property<string>("Tuesday");
+
+                    b.Property<string>("Wednesday");
+
+                    b.Property<int?>("WeekNumber");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PersonId");
+
+                    b.ToTable("Schedule");
+                });
+
             modelBuilder.Entity("Contacts.Models.Season", b =>
                 {
                     b.Property<int>("Id")
@@ -238,6 +439,13 @@ namespace Contacts.Migrations
                     b.HasOne("Contacts.Models.Team", "Team")
                         .WithMany()
                         .HasForeignKey("TeamId");
+                });
+
+            modelBuilder.Entity("Contacts.Models.Schedule.Schedule", b =>
+                {
+                    b.HasOne("Contacts.Models.Schedule.Person", "Person")
+                        .WithMany()
+                        .HasForeignKey("PersonId");
                 });
 #pragma warning restore 612, 618
         }

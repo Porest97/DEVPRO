@@ -1,0 +1,150 @@
+﻿@model IEnumerable<Contacts.Models.SIFModels.SIFArena>
+
+@{
+    ViewData["Title"] = "SIFArenas";
+}
+
+<h1>SIFs Alla Arenor !</h1>
+
+<form asp-controller="SIFArenas" asp-action="Index">
+    <p>
+        Sök Disrikt: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<p>
+    <a asp-action="Create">Create New</a>
+    <div><a class="btn btn-success btn-sm" asp-controller="Home" asp-action="SIFLists">Back to SIFLists Main Page !</a></div>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenaNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenanName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenanAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenanZipCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenanCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenanCountry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenanDistrict)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenanCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenanPhoneNumbers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenanCapacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenanStanding)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenanBench)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenanChair)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenanSoftChair)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenanHandicapSlots)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenanBuildYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenanReBuildYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenanLatestInspected)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArenanLastChecked)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.OrderBy(a=>a.ArenanDistrict)) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenaNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenanName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenanAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenanZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenanCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenanCountry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenanDistrict)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenanCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenanPhoneNumbers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenanCapacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenanStanding)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenanBench)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenanChair)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenanSoftChair)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenanHandicapSlots)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenanBuildYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenanReBuildYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenanLatestInspected)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArenanLastChecked)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

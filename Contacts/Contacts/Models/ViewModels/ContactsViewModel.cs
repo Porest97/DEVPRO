@@ -9,7 +9,7 @@ namespace Contacts.Models.ViewModels
 {
     public class ContactsViewModel
     {
-
+        
         [Display(Name = "Klubb")]
         public int? ClubId { get; set; }
         [Display(Name = "Klubb")]       

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Contacts.Models;
+using Contacts.Models.ViewModels;
 
 namespace Contacts.Controllers
 {
@@ -28,6 +29,34 @@ namespace Contacts.Controllers
         {                     
             var contactsContext = _context.Contact.Include(c => c.AgeCategory).Include(c => c.Club).Include(c => c.District).Include(c => c.Role).Include(c => c.Season).Include(c => c.Sport).Include(c => c.Team);
             return View(await contactsContext.ToListAsync());
+        }
+
+        // GET: Contacts
+        public async Task<IActionResult> Index1()
+        {
+            var contactsContext = _context.Contact.Include(c => c.AgeCategory).Include(c => c.Club).Include(c => c.District).Include(c => c.Role).Include(c => c.Season).Include(c => c.Sport).Include(c => c.Team);
+            return View(await contactsContext.ToListAsync());
+        }
+
+        // GET: WorkReports to ListContacts
+        public IActionResult ListContacts()
+        {
+
+            var contacts = _context.Contact.Select(c => c.Id);
+
+            var contactsViewModel = new ContactsViewModel()
+            {
+                Contacts = _context.Contact.Where(c => c.Id != 0)
+                .Include(c => c.AgeCategory)
+                .Include(c => c.Club)
+                .Include(c => c.District)
+                .Include(c => c.Role)
+                .Include(c => c.Season)
+                .Include(c => c.Sport)
+                .Include(c => c.Team).ToList(),
+            };
+
+            return View(contactsViewModel);
         }
 
         // GET: Contacts/Details/5
@@ -79,7 +108,48 @@ namespace Contacts.Controllers
             {
                 _context.Add(contact);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ViewDB));
+            }
+            ViewData["AgeCategoryId"] = new SelectList(_context.Set<AgeCategory>(), "Id", "AgeCategoryName", contact.AgeCategoryId);
+            ViewData["ClubId"] = new SelectList(_context.Set<Club>(), "Id", "ClubName", contact.ClubId);
+            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "DistrictName", contact.DistrictId);
+            ViewData["RoleId"] = new SelectList(_context.Set<Role>(), "Id", "RoleName", contact.RoleId);
+            ViewData["SeasonId"] = new SelectList(_context.Set<Season>(), "Id", "SeasonName", contact.SeasonId);
+            ViewData["SportId"] = new SelectList(_context.Set<Sport>(), "Id", "SportName", contact.SportId);
+            ViewData["TeamId"] = new SelectList(_context.Set<Team>(), "Id", "TeamName", contact.TeamId);
+            return View(contact);
+        }
+        /// <summary>
+        /// FastCreate
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+
+        // GET: Contacts/Create
+        public IActionResult FastCreate()
+        {
+            ViewData["AgeCategoryId"] = new SelectList(_context.Set<AgeCategory>(), "Id", "AgeCategoryName");
+            ViewData["ClubId"] = new SelectList(_context.Set<Club>(), "Id", "ClubName");
+            ViewData["DistrictId"] = new SelectList(_context.Set<District>(), "Id", "DistrictName");
+            ViewData["RoleId"] = new SelectList(_context.Set<Role>(), "Id", "RoleName");
+            ViewData["SeasonId"] = new SelectList(_context.Set<Season>(), "Id", "SeasonName");
+            ViewData["SportId"] = new SelectList(_context.Set<Sport>(), "Id", "SportName");
+            ViewData["TeamId"] = new SelectList(_context.Set<Team>(), "Id", "TeamName");
+            return View();
+        }
+
+        // POST: Contacts/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> FastCreate([Bind("Id,AgeCategoryId,ClubId,TeamId,RoleId,SeasonId,SportId,DistrictId,FirstName,LastName,PhoneNumber1,PhoneNumber2,Email,Ssn")] Contact contact)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(contact);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(FastCreate));
             }
             ViewData["AgeCategoryId"] = new SelectList(_context.Set<AgeCategory>(), "Id", "AgeCategoryName", contact.AgeCategoryId);
             ViewData["ClubId"] = new SelectList(_context.Set<Club>(), "Id", "ClubName", contact.ClubId);
@@ -144,7 +214,7 @@ namespace Contacts.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ViewDB));
             }
             ViewData["AgeCategoryId"] = new SelectList(_context.Set<AgeCategory>(), "Id", "AgeCategoryName", contact.AgeCategoryId);
             ViewData["ClubId"] = new SelectList(_context.Set<Club>(), "Id", "ClubName", contact.ClubId);

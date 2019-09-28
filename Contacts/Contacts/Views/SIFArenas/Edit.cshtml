@@ -1,0 +1,121 @@
+﻿@model Contacts.Models.SIFModels.SIFArena
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>SIFArena</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="ArenaNumber" class="control-label"></label>
+                <input asp-for="ArenaNumber" class="form-control" />
+                <span asp-validation-for="ArenaNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArenanName" class="control-label"></label>
+                <input asp-for="ArenanName" class="form-control" />
+                <span asp-validation-for="ArenanName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArenanAddress" class="control-label"></label>
+                <input asp-for="ArenanAddress" class="form-control" />
+                <span asp-validation-for="ArenanAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArenanZipCode" class="control-label"></label>
+                <input asp-for="ArenanZipCode" class="form-control" />
+                <span asp-validation-for="ArenanZipCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArenanCity" class="control-label"></label>
+                <input asp-for="ArenanCity" class="form-control" />
+                <span asp-validation-for="ArenanCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArenanCountry" class="control-label"></label>
+                <input asp-for="ArenanCountry" class="form-control" />
+                <span asp-validation-for="ArenanCountry" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArenanDistrict" class="control-label"></label>
+                <input asp-for="ArenanDistrict" class="form-control" />
+                <span asp-validation-for="ArenanDistrict" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArenanCategory" class="control-label"></label>
+                <input asp-for="ArenanCategory" class="form-control" />
+                <span asp-validation-for="ArenanCategory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArenanPhoneNumbers" class="control-label"></label>
+                <input asp-for="ArenanPhoneNumbers" class="form-control" />
+                <span asp-validation-for="ArenanPhoneNumbers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArenanCapacity" class="control-label"></label>
+                <input asp-for="ArenanCapacity" class="form-control" />
+                <span asp-validation-for="ArenanCapacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArenanStanding" class="control-label"></label>
+                <input asp-for="ArenanStanding" class="form-control" />
+                <span asp-validation-for="ArenanStanding" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArenanBench" class="control-label"></label>
+                <input asp-for="ArenanBench" class="form-control" />
+                <span asp-validation-for="ArenanBench" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArenanChair" class="control-label"></label>
+                <input asp-for="ArenanChair" class="form-control" />
+                <span asp-validation-for="ArenanChair" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArenanSoftChair" class="control-label"></label>
+                <input asp-for="ArenanSoftChair" class="form-control" />
+                <span asp-validation-for="ArenanSoftChair" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArenanHandicapSlots" class="control-label"></label>
+                <input asp-for="ArenanHandicapSlots" class="form-control" />
+                <span asp-validation-for="ArenanHandicapSlots" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArenanBuildYear" class="control-label"></label>
+                <input asp-for="ArenanBuildYear" class="form-control" />
+                <span asp-validation-for="ArenanBuildYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArenanReBuildYear" class="control-label"></label>
+                <input asp-for="ArenanReBuildYear" class="form-control" />
+                <span asp-validation-for="ArenanReBuildYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArenanLatestInspected" class="control-label"></label>
+                <input asp-for="ArenanLatestInspected" class="form-control" />
+                <span asp-validation-for="ArenanLatestInspected" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArenanLastChecked" class="control-label"></label>
+                <input asp-for="ArenanLastChecked" class="form-control" />
+                <span asp-validation-for="ArenanLastChecked" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
